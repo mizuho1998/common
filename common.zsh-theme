@@ -5,21 +5,22 @@ COMMON_PROMPT_SYMBOL="❯"
 
 # Colors
 COMMON_COLORS_HOST_ME=green
-COMMON_COLORS_HOST_AWS_VAULT=yellow
-COMMON_COLORS_CURRENT_DIR=blue
-COMMON_COLORS_RETURN_STATUS_TRUE=yellow
+COMMON_COLORS_HOST_AWS_VAULT=cyan
+COMMON_COLORS_CURRENT_DIR=cyan
+COMMON_COLORS_RETURN_STATUS_TRUE=cyan
 COMMON_COLORS_RETURN_STATUS_FALSE=red
 COMMON_COLORS_GIT_STATUS_DEFAULT=green
 COMMON_COLORS_GIT_STATUS_STAGED=red
-COMMON_COLORS_GIT_STATUS_UNSTAGED=yellow
+COMMON_COLORS_GIT_STATUS_UNSTAGED=cyan
 COMMON_COLORS_GIT_PROMPT_SHA=green
-COMMON_COLORS_BG_JOBS=yellow
+COMMON_COLORS_BG_JOBS=cyan
 
 # Left Prompt
  PROMPT='$(common_host)$(common_current_dir)$(common_bg_jobs)$(common_return_status)'
 
 # Right Prompt
- RPROMPT='$(common_git_status)'
+ RPROMPT='%F{white} %D{%H:%M:%S} %f $(common_git_status)'
+
 
 # Prompt with current SHA
 # PROMPT='$(common_host)$(common_current_dir)$(common_bg_jobs)$(common_return_status)'
