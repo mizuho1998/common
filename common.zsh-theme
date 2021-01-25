@@ -52,6 +52,18 @@ common_return_status() {
 }
 
 # Git status
+prompt_pure_check_git_arrows() {
+    local arrows left=${1:-0} right=${2:-0}
+
+    (( right > 0 )) && arrows+=${PURE_GIT_DOWN_ARROW:-⇣}
+    (( left > 0 )) && arrows+=${PURE_GIT_UP_ARROW:-⇡}
+
+    [[ -n $arrows ]] || return
+    typeset -g REPLY=$arrows
+}
+prompt_pure_async_git_arrows() {
+    command git rev-list --left-right --count HEAD...@'{u}'
+}
 common_git_status() {
     local message=""
     local message_color="%F{$COMMON_COLORS_GIT_STATUS_DEFAULT}"
@@ -68,7 +80,8 @@ common_git_status() {
 
     local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
     if [[ -n ${branch} ]]; then
-        message+="${message_color}${branch}%f"
+        prompt_pure_check_git_arrows $(prompt_pure_async_git_arrows )
+        message+="${message_color}${REPLY} ${branch}%f"
     fi
 
     echo -n "${message}"
