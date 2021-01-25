@@ -62,7 +62,7 @@ prompt_pure_check_git_arrows() {
     typeset -g REPLY=$arrows
 }
 prompt_pure_async_git_arrows() {
-    command git rev-list --left-right --count HEAD...@'{u}'
+    command git rev-list --left-right --count HEAD...@'{u}' 2>/dev/null
 }
 common_git_status() {
     local message=""
