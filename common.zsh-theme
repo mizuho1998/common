@@ -10,8 +10,8 @@ COMMON_COLORS_CURRENT_DIR=cyan
 COMMON_COLORS_RETURN_STATUS_TRUE=cyan
 COMMON_COLORS_RETURN_STATUS_FALSE=red
 COMMON_COLORS_GIT_STATUS_DEFAULT=green
-COMMON_COLORS_GIT_STATUS_STAGED=red
-COMMON_COLORS_GIT_STATUS_UNSTAGED=cyan
+COMMON_COLORS_GIT_STATUS_STAGED=yellow
+COMMON_COLORS_GIT_STATUS_UNSTAGED=red
 COMMON_COLORS_GIT_PROMPT_SHA=green
 COMMON_COLORS_BG_JOBS=cyan
 
@@ -19,7 +19,7 @@ COMMON_COLORS_BG_JOBS=cyan
  PROMPT='$(common_host)$(common_current_dir)$(common_bg_jobs)$(common_return_status)'
 
 # Right Prompt
- RPROMPT='%F{white} %D{%H:%M:%S} %f $(common_git_status)'
+ RPROMPT='%f $(common_git_status) %F{white}%D{%H:%M:%S}'
 
 
 # Prompt with current SHA
